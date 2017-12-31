@@ -20,15 +20,20 @@ function setup() {
 
 function draw() {
   let accs = [
-    createVector(random(-.25, .25), 0, 0),
-    createVector(0, random(-.25, .25), 0),
-    createVector(0, 0, random(-.25, .25)),
+    createVector(random(-.1, .1), 0, 0),
+    createVector(0, random(-.1, .1), 0),
+    createVector(0, 0, random(-.1, .1)),
     createVector(0, 0, 0)
   ];
   cam.update();
   cam.show();
   randomBox = random(boxes);
-  randomBox.acc = accs[floor(random(3))];
+  if (randomBox.acc) {
+    randomBox.vel = createVector(0, 0, 0);
+    randomBox.acc = null;
+  } else {
+    randomBox.acc = accs[floor(random(3))];
+  }
   for (let box of boxes) {
     box.update();
     box.draw();
