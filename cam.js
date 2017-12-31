@@ -10,9 +10,6 @@ let Cam = function(x, y, z, radius) {
     rotateY(this.ang);
   }
   this.update = function() {
-    //  this.pos.x = sin(this.ang) * this.r
-    //  this.pos.z = cos(this.ang) * this.r
-    console.log(this.pos);
     this.pos.x = 100 * sin(3 * this.ang);
     this.pos.z = 100 * sin(4 * this.ang);
 
